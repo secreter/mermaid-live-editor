@@ -48,8 +48,8 @@
   ];
 
   let width = $state(0);
-  let isMobile = $derived(width < 640);
-  let isViewMode = $state(true);
+  let isMobile = $derived(width < 800);
+  let isViewMode = $state(false);
 
   onMount(async () => {
     await initHandler();
@@ -70,7 +70,7 @@
 
 <div class="flex h-full flex-col overflow-hidden">
   {#snippet mobileToggle()}
-    <div class="flex items-center gap-2">
+    <!-- <div class="flex items-center gap-2">
       Edit <Switch
         id="editorMode"
         class="data-[state=checked]:bg-accent"
@@ -78,7 +78,7 @@
         onclick={() => {
           logEvent('mobileViewToggle');
         }} /> View
-    </div>
+    </div> -->
   {/snippet}
 
   <Navbar mobileToggle={isMobile ? mobileToggle : undefined}>
@@ -99,13 +99,9 @@
   </Navbar>
 
   <div class="flex flex-1 flex-col overflow-hidden" bind:clientWidth={width}>
-    <div
-      class={[
-        'size-full',
-        isMobile && ['w-[200%] duration-300', isViewMode && '-translate-x-1/2']
-      ]}>
+    <div class={['size-full', isMobile && ['duration-300', isViewMode && '-translate-x-1/2']]}>
       <Resizable.PaneGroup
-        direction="horizontal"
+        direction={isMobile ? 'vertical' : 'horizontal'}
         autoSaveId="liveEditor"
         class="gap-4 p-2 pt-0 sm:gap-0 sm:p-6 sm:pt-0">
         <Resizable.Pane bind:this={editorPane} defaultSize={30} minSize={15}>
@@ -122,7 +118,9 @@
               <Editor {isMobile} />
             </Card>
 
-            <div class="group flex flex-wrap justify-between gap-4 sm:gap-6">
+            <div
+              class="group flex flex-wrap justify-between gap-4 sm:gap-6"
+              class:hidden={isMobile}>
               <Preset />
               <Actions />
             </div>

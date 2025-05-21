@@ -81,7 +81,7 @@
     {/snippet}
   </div>
 {/if}
-
+<!-- 
 <nav class="z-50 flex p-4 sm:p-6">
   <div class="flex flex-1 items-center gap-4">
     <MainMenu />
@@ -129,9 +129,10 @@
   <div
     id="menu"
     class="hidden flex-nowrap items-center justify-between gap-3 overflow-hidden md:flex">
-    <!-- <DropdownNavMenu icon={GithubIcon} links={githubLinks} /> -->
+    <DropdownNavMenu icon={GithubIcon} links={githubLinks} /> 
     <Separator orientation="vertical" />
     {@render children()}
   </div>
   {@render mobileToggle?.()}
-</nav>
+</nav> -->
+<div style="height: 10px;"></div>
