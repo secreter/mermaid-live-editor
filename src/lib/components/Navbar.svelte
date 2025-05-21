@@ -129,7 +129,7 @@
   <div
     id="menu"
     class="hidden flex-nowrap items-center justify-between gap-3 overflow-hidden md:flex">
-    <DropdownNavMenu icon={GithubIcon} links={githubLinks} />
+    <!-- <DropdownNavMenu icon={GithubIcon} links={githubLinks} /> -->
     <Separator orientation="vertical" />
     {@render children()}
   </div>

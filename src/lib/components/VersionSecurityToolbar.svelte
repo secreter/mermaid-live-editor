@@ -10,12 +10,12 @@
 </script>
 
 <FloatingToolbar>
-  <span class="text-sm font-semibold opacity-60">v{version}</span>
+  <!-- <span class="text-sm font-semibold opacity-60">v{version}</span>
   <Button variant="ghost" size="icon" title="Privacy & Security">
     <Privacy />
   </Button>
 
-  <Separator orientation="vertical" />
+  <Separator orientation="vertical" /> -->
   <Button
     variant="ghost"
     size="icon"
