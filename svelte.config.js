@@ -17,7 +17,10 @@ const config = {
     adapter: adapter({
       pages: 'docs',
       fallback: '404.html'
-    })
+    }),
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/mermaid-live-editor' : ''
+    }
   }
 };
 
